@@ -63,8 +63,8 @@ $dbConfigFile = APP_PATH . 'database.php';
 $lockFile = INSTALL_PATH . 'install.lock';
 if (is_file($lockFile)) {
     $errInfo = "当前已经安装{$sitename}，如果需要重新安装，请手动移除application/admin/command/Install/install.lock文件";
-} else if (version_compare(PHP_VERSION, '5.5.0', '<')) {
-    $errInfo = "当前版本(" . PHP_VERSION . ")过低，请使用PHP5.5以上版本";
+} else if (version_compare(PHP_VERSION, '5.4.0', '<')) {
+    $errInfo = "当前版本(" . PHP_VERSION . ")过低，请使用PHP5.4以上版本";//建议此处改低到5.4的版本号
 } else if (!extension_loaded("PDO")) {
     $errInfo = "当前未开启PDO，无法进行安装";
 } else if (!is_really_writable($dbConfigFile)) {
